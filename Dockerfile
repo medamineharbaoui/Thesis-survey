@@ -1,16 +1,10 @@
-# Build Spring Boot only — assumes Angular is already built into dist/survey-app/browser
-
+# Stage 1: Build the Spring Boot app
 FROM maven:3.8-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
-
-# Copy Angular dist manually to Spring Boot static dir
-RUN mkdir -p src/main/resources/static \
-    && cp -r dist/survey-app/browser/* src/main/resources/static/
-
 RUN mvn clean package -DskipTests
 
-# Final image
+# Stage 2: Run the Spring Boot app
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
