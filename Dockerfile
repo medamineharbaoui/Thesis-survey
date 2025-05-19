@@ -7,7 +7,7 @@ COPY survey-app ./survey-app
 RUN cd survey-app && npm run build -- --configuration production
 
 # 2. Build Spring Boot with Angular inside
-FROM maven:3.8.6-openjdk-17 AS builder
+FROM maven:3.8-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
 COPY --from=frontend /app/survey-app/dist/survey-app/browser ./src/main/resources/static
