@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: thesis-survey-backend
+    env: java
+    plan: free
+    branch: main               # or your branch name
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/*.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromEnv: SPRING_DATASOURCE_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        fromEnv: SPRING_DATASOURCE_USERNAME
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromEnv: SPRING_DATASOURCE_PASSWORD
