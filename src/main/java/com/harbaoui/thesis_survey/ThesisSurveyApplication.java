@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import io.github.cdimascio.dotenv.Dotenv;
+//import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.annotation.PostConstruct;
 import java.io.File;
 
@@ -15,10 +15,10 @@ import java.io.File;
 public class ThesisSurveyApplication {
 
     public static void main(String[] args) {
-    Dotenv dotenv = Dotenv.load();
-    System.setProperty("spring.datasource.url", dotenv.get("SPRING_DATASOURCE_URL"));
-    System.setProperty("spring.datasource.username", dotenv.get("SPRING_DATASOURCE_USERNAME"));
-    System.setProperty("spring.datasource.password", dotenv.get("SPRING_DATASOURCE_PASSWORD"));
+    //Dotenv dotenv = Dotenv.load();
+    //System.setProperty("spring.datasource.url", dotenv.get("SPRING_DATASOURCE_URL"));
+    //System.setProperty("spring.datasource.username", dotenv.get("SPRING_DATASOURCE_USERNAME"));
+    //System.setProperty("spring.datasource.password", dotenv.get("SPRING_DATASOURCE_PASSWORD"));
     SpringApplication.run(ThesisSurveyApplication.class, args);
 }
 
